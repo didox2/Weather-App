@@ -1,0 +1,16 @@
+<div>
+  <h1 class="forecast">Forecast</h1>
+</div>
+<div class="forecast-city">
+  <h1>{{ city }}</h1>
+  <p>Next 1 week</p>
+</div>
+<div class="forecast-container">
+  <div class="day" *ngFor="let day of forecastdays">
+    <div>{{getDayOfWeek(day.date)}}</div>
+    <img src="{{day.day.condition.icon}}" alt="forecast icon">
+    <div>Hmd: {{day.day.avghumidity}}%</div>
+    <div>Min: {{day.day.mintemp_c}}&deg;C</div>
+    <div>Max: {{day.day.maxtemp_c}}&deg;C</div>
+  </div>
+</div>

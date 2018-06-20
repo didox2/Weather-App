@@ -1,0 +1,83 @@
+<div id="loading-page"></div>
+<div class="info-wrapper error" *ngIf="errorMessage !== undefined">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="errorMessage === undefined">
+
+  <div class="main-container">
+    <div class="city-and-current">
+      <h1>{{ cityName }}
+        <img src="{{ currentConditionIcon }}" alt="Current Condition Icon">
+        <span>{{currentTemperature}}&deg;C</span>
+      </h1>
+    </div>
+    <div>
+      <h3>
+        {{ localTime }}
+      </h3>
+    </div>
+    <div class="current-condition-text">
+      <h4>
+        {{ currentCondition }}
+      </h4>
+    </div>
+  </div>
+
+  <div class="main-container2">
+    <div class="city">
+      <h1>{{ cityName }}</h1>
+    </div>
+    <div class="icon-temperature">
+      <img src="{{ currentConditionIcon }}" alt="Current Condition Icon">
+      <span>{{currentTemperature}}&deg;C</span>
+    </div>
+    <div class="datetime">
+      <h3>
+        {{ localTime }}
+      </h3>
+    </div>
+    <div class="current-condition-text">
+      <h4>
+        {{ currentCondition }}
+      </h4>
+    </div>
+  </div>
+
+  <div>
+    <div class="forecst-buttons">
+      <button class="btn-today" (click)="showToday()">Today</button>
+      <button class="btn-forecast" (click)="showForecast()">7 Days Forecast</button>
+    </div>
+
+    <table id="today" class="second-flex-container">
+      <tr>
+        <td class="left-col">Feels Like</td>
+        <td class="right-col">{{ feelsLike }}&deg;C</td>
+      </tr>
+      <tr>
+        <td class="left-col">Wind</td>
+        <td class="right-col">{{ wind }} km/h</td>
+      </tr>
+      <tr>
+        <td class="left-col">Humidity</td>
+        <td class="right-col">{{ humidity }}%</td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="forecst-button">
+    <button id="btn-load-forecast" (click)="loadForecast()">7 Days Forecast</button>
+  </div>
+  <div id="forecast" class="tablet-forecast">
+    <div class="forecast-container">
+      <div class="day" *ngFor="let day of forecastdays">
+        <div>{{getDayOfWeek(day.date)}}</div>
+        <img src="{{day.day.condition.icon}}" alt="forecast icon">
+        <div>Hmd: {{day.day.avghumidity}}%</div>
+        <div>Min: {{day.day.mintemp_c}}&deg;C</div>
+        <div>Max: {{day.day.maxtemp_c}}&deg;C</div>
+      </div>
+    </div>
+  </div>
+</div>

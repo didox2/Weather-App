@@ -1,0 +1,11 @@
+<div class="form-wrapper">
+  <form>
+    <div class="search-bar">
+      <div class="btn-label">Enter name of a city and press search:</div>
+      <input type="text" class="txt" name="item" placeholder="Enter town's name" [(ngModel)]="searchFormText">
+      <div class="search-button">
+        <button type="button" class="btn-submit" (click)="searchTown()">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
